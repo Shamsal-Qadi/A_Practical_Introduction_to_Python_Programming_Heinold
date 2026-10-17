@@ -1,32 +1,37 @@
 """
-p14
-Dictionaries provide a convenient way to store structured data. Here is an example dictionary:
-d=[{ ' name ' : ' Todd ' , ' phone ' : ' 555-1414 ' , ' email ' : ' todd@mail.net ' },
-{ ' name ' : ' Helga ' , ' phone ' : ' 555-1618 ' , ' email ' : ' helga@mail.net ' },
-{ ' name ' : ' Princess ' , ' phone ' : ' 555-3141 ' , ' email ' : ' ' },
-{ ' name ' : ' LJ ' , ' phone ' : ' 555-2718 ' , ' email ' : ' lj@mail.net ' }]
-Write a program that reads through any dictionary like this and prints the following:
-(a) All the users whose phone number ends in an 8
-(b) All the users that don’t have an email address listed
+p15
+The following problem is from Chapter 6. Try it again, this time using a dictionary whose
+keys are the names of the time zones and whose values are offsets from the Eastern time
+zone.
+Write a program that converts a time from one time zone to another. The user enters the time
+in the usual American way, such as 3:48pm or 11:26am . The first time zone the user enters
+is that of the original time and the second is the desired time zone. The possible time zones
+are Eastern , Central , Mountain , or Pacific .
+Time: 11:48pm
+Starting zone: Pacific
+Ending zone: Eastern
+2:48am
 """
-l = []
-flag = True
-while flag:
-    d = {}
-    d['name'] = input("enter your name: ")
-    d['phone'] = input("enter your phone: ")
-    d['email'] = input("enter your email: ")
-    l.append(d)
-    flag = bool(input("Are you finished? ").capitalize())
+# if the current time not central convert it .
+# create a dict which its keys is times zone and values are float numbers.
+#d[zone that user want] + current time.
+time, zone = input("Time: ").split()
+curr_zone = input("Starting zone: ")
+end_zone = input("Ending zone: ")
+standard = 0
 
-list_phone = []
-list_email = []
-for row in l:
-    item = list(row.values())
-    if item[1][-1] == '8':
-        list_phone.append(item[0])
-    if item[2] == ' ':
-        list_email.append(item[0])
+d = {'Eastern': -1, 'Central': 0, 'Mountain': 1, 'Pacific': 2}
+if curr_zone != 'Central':
+    standard = d[curr_zone] + int(time[:2])
+new_time = standard - d[end_zone]
+if new_time > 12 :
+    new_time -= 12
+    if zone == 'pm':
+        zone = 'am'
+    else:
+        zone = 'pm'
+print(new_time, time[2:], zone, sep='')
 
-print("users whose phone number ends in an 8 ",list_phone)
-print("users that don’t have an email address listed ",list_email)
+
+
+##########################################
