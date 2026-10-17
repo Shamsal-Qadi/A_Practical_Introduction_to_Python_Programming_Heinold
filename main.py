@@ -1,12 +1,14 @@
-lowest = 101
-second_lowest = 101
-
-for i in range(10):
-    score = int(input())
-
-    if score < lowest:
-        second_lowest = lowest
-        lowest = score
-
-    if score < second_lowest and score != lowest:
-        second_lowest = score
+from string import ascii_lowercase          ##############example p 67
+s = input()
+word_s = input()
+new_string = ''
+s = s.lower()
+for char in s:
+    if char in ascii_lowercase or char == ' ':
+        new_string += char
+l = new_string.split()
+c = 0
+for word in l:
+    if word == word_s:
+        c += 1
+print(c)
