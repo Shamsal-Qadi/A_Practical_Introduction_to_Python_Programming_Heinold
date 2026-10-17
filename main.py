@@ -17,14 +17,15 @@ string.
 L = [ 'aabaabac' , 'cabaabca' , 'aaabbcba' , 'aabacbab' , 'acababba' ]
 user = input("enter your pattern: ")        # a**a****
 d = {}                                     # d: 0:'a', 3:'a'
-ans = []
 for i in range(len(user)):
     if user[i] != '*':
         d[i] = user[i]
 
 
 for word in L:
-    for i in range(len(word)):
+    for i in d:
+        if d[i] != word[i]:
+            break
+    else:
+        print(word)
 
-
-print(ans)
