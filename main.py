@@ -930,3 +930,11 @@
 # for i in d[name]:
 #     print(notes[i+ind],end='')
 ################################################
+d = {'Minor': [3,7], 'Augmented fifth': [4,8], 'Minor fifth': [4,6], 'Major sixth': [4,7,9], 'Minor sixth': [3,7,9],
+     'Dominant seventh':[4,7,10], 'Minor seventh':[3,7,10], 'Major seventh': [4,7,11], 'Diminished seventh': [3,6,10]}
+notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+letter, name = input("enter the name of note: ").split()
+print(letter,end='')
+ind = notes.index(letter)
+for i in d[name]:
+    print(notes[i+ind],end='')
