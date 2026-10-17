@@ -930,4 +930,3 @@
 # for i in d[name]:
 #     print(notes[i+ind],end='')
 ################################################
-print("Hello")
