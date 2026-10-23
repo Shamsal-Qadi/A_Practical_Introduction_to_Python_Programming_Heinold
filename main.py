@@ -26,25 +26,10 @@ for row in l :
 for i in range(5) :
     for j in range(5):
         if l[i][j] == 0:
-            if 0 <= (i - 1) <= 4 and l[i - 1][j] == 'm':
-                l[i][j] += 1
-            if 0 <= (i + 1) <= 4 and l[i + 1][j] == 'm':
-                l[i][j] += 1
-            if 0<= (j + 1) <= 4 and l[i][j + 1] == 'm':
-                l[i][j] += 1
-            if 0<= (j - 1) <= 4 and l[i][j - 1] == 'm':
-                l[i][j] += 1
-            if 0 <= (i - 1) <= 4 and 0<= (j - 1) <= 4 and l[i - 1][j - 1] == 'm':
-                l[i][j] += 1
-            if 0 <= (i - 1) <= 4 and 0<= (j + 1) <= 4 and l[i - 1][j + 1] == 'm':
-                l[i][j] += 1
-            if 0 <= (i + 1) <= 4 and 0<= (j - 1) <= 4 and l[i + 1][j - 1] == 'm':
-                l[i][j] += 1
-            if 0 <= (i + 1) <= 4 and 0<= (j + 1) <= 4 and l[i + 1][j + 1] == 'm':
-                l[i][j] += 1
-
-
-
+            for x in range(i-1,i+2,1):
+                for y in range(j-1,j+2,1):
+                    if 0 <= x <= 4 and 0 <= y <= 4 and l[x][y] == 'm':
+                        l[i][j] += 1
 
 for row in l :
     print(row)
