@@ -1,33 +1,50 @@
+from random import randint
 """
-p27
-Write a program that simulates all possible rolls of four dice and for each simulated roll, finds
-the sums of pairs of dice. For instance, if the roll is 5 1 2 4, the sums are 6, 8, 9, 3 ,5, and 6.
-For each of the possible sums from 2 to 12, find the total number of simulated rolls in which
-the sum appears and what percentage of the simulated rolls had those sums appear. Output
-the totals and percentages, nicely formatted, with the percentages formatted to one decimal
-place. To check your work, you should find that the sum 2 comes up in 171 rolls, which is
-13.2% of the rolls.
+p29
+The following is useful as part of a program to play Minesweeper. Suppose you have a 5 × 5
+list that consists of zeros and M’s. Write a program that creates a new 5 × 5 list that has M’s in
+the same place, but the zeroes are replaced by counts of how many M’s are in adjacent cells
+(adjacent either horizontally, vertically, or diagonally). An example is shown below. [Hint:
+short-circuiting may be helpful for avoiding index-out-of-range errors.]
+0 m 0 m 0
+0 0 m 0 0
+0 0 0 0 0
+m m 0 0 0
+0 0 0 m 0
 """
-d = {}
-for i in range(1, 6 +1):
-    for j in range(1, 6 +1):
-        for x in range(1, 6 +1):
-            for y in range(1, 6 +1):
-                roll = str(i) + str(j) + str(x) + str(y)
-                # print(roll)
-                for a in range(4):
-                    for b in range(a+1,4):
-                        sum_pair = int(roll[a]) + int(roll[b])
-                        if sum_pair not in d:
-                            d[sum_pair] = 1
-                        else:
-                            d[sum_pair] += 1
+l = [[randint(0,1) for i in range(5)] for j in range(5)]
 
-base = sum(list(d.values()))
-percentage = []
-for key in d:
-    perc = (d[key] / base) * 100
-    percentage.append(perc)
-print(sum(percentage))
-for i in percentage:
-    print('{:.1f}'.format(i),end=' ')
+for row in l :
+    for i in range(len(row)):
+        if row[i] == 1:
+            row[i] = 'm'
+
+for row in l :
+    print(row)
+
+
+for i in range(5) :
+    for j in range(5):
+        if l[i][j] == 0:
+            if 0 <= (i - 1) <= 4 and l[i - 1][j] == 'm':
+                l[i][j] += 1
+            if 0 <= (i + 1) <= 4 and l[i + 1][j] == 'm':
+                l[i][j] += 1
+            if 0<= (j + 1) <= 4 and l[i][j + 1] == 'm':
+                l[i][j] += 1
+            if 0<= (j - 1) <= 4 and l[i][j - 1] == 'm':
+                l[i][j] += 1
+            if 0 <= (i - 1) <= 4 and 0<= (j - 1) <= 4 and l[i - 1][j - 1] == 'm':
+                l[i][j] += 1
+            if 0 <= (i - 1) <= 4 and 0<= (j + 1) <= 4 and l[i - 1][j + 1] == 'm':
+                l[i][j] += 1
+            if 0 <= (i + 1) <= 4 and 0<= (j - 1) <= 4 and l[i + 1][j - 1] == 'm':
+                l[i][j] += 1
+            if 0 <= (i + 1) <= 4 and 0<= (j + 1) <= 4 and l[i + 1][j + 1] == 'm':
+                l[i][j] += 1
+
+
+
+
+for row in l :
+    print(row)
