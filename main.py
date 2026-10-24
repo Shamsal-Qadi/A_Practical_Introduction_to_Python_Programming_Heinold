@@ -1,17 +1,14 @@
 """
-p7
-Write a function that takes an integer n and returns a random integer with exactly n digits. For
-instance, if n is 3, then 125 and 593 would be valid return values, but 093 would not because
-that is really 93, which is a two-digit number.
+p8
+Write a function called number_of_factors that takes an integer and returns how many
+factors the number has.
 """
-from random import randint
-def digits(n):
-    str_num = ''
-    for i in range(n):
-        x = randint(1,9)
-        str_num += str(x)
-    return int(str_num)
+def number_of_factors(n):
+    c = 0
+    for i in range(1, n +1):
+        if n%i == 0:
+            c += 1
+    return c
 
-
-num = int(input("Enter the number of digits: "))
-print(digits(num))
+num = int(input("Enter the number: "))
+print(number_of_factors(num))
