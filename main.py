@@ -1,15 +1,23 @@
 """
-p5
-Write a function called first_diff that is given two strings and returns the first location in
-which the strings differ. If the strings are identical, it should return -1.
+p6
+Write a function
+called binom that takes two integers n and k and returns the binomial coefficient
+(nk) . The definition is nk = n! / k!(n−k)!
+Numerator and denominator .
 """
-def first_diff(string1 , string2):
-    result = -1
-    for i in range(len(string1)):
-        if string1[i] != string2[i]:
-            result = i
-            break
-    return result
 
-s1 ,s2 = input("Enter 2 strings: ").split()
-print(first_diff(s1 , s2))
+def binom(n , k):
+    num, denom, de_new = 1, 1, 1
+    for i in range(n,0,-1):
+        num *= i
+    for i in range(k,0,-1):
+        denom *= i
+    new = n - k
+    for i in range(new,0,-1):
+        de_new *= i
+    denom *= de_new
+    return num / denom
+
+a , b = input("Enter tow numbers: ").split()
+a , b = int(a) , int(b)
+print(binom(a , b))
