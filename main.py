@@ -1,30 +1,15 @@
 """
-p2
-(a) Write a function called add_excitement that takes a list of strings and adds an excla-
-mation point ( ! ) to the end of each string in the list. The program should modify the
-original list and not return anything.
-(b) Write the same function except that it should not modify the original list and should
-instead return a new list.
+p1
+Write a function called rectangle that takes two integers m and n as arguments and prints
+out an m × n box consisting of asterisks. Shown below is the output of rectangle(2,4)
+****
+****
 """
-def add_excitement(list_string):
-    for i in range(len(list_string)):
-        list_string[i] += '!'
-        print(list_string[i],end=' ')
+def rectangle(m , n):
+    for i in range(m):
+        for j in range(n):
+            print('*',end='')
+        print()
 
-
-
-
-s = input("Enter the string: ").split()
-add_excitement(s)
-print(s)
-
-
-def add_excitement(list_string):
-    new = []
-    for item in list_string:
-        new.append(item + '!')
-    return new
-
-s = input("Enter the string: ").split()
-print(add_excitement(s))
-print(s)
+a , b = [int(i) for i in input().split()]
+rectangle(a ,b)
