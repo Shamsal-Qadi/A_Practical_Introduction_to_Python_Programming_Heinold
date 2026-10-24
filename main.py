@@ -1,14 +1,30 @@
 """
-p30
-Pascal’s triangle is shown below. On the outside are 1’s and each other number is the sum of
-the two numbers directly above it. Write a program to generate Pascal’s triangle. Allow the
-user to specify the number of rows. Be sure that it is nicely formatted, like below.
+p2
+(a) Write a function called add_excitement that takes a list of strings and adds an excla-
+mation point ( ! ) to the end of each string in the list. The program should modify the
+original list and not return anything.
+(b) Write the same function except that it should not modify the original list and should
+instead return a new list.
 """
+def add_excitement(list_string):
+    for i in range(len(list_string)):
+        list_string[i] += '!'
+        print(list_string[i],end=' ')
 
-print(5*' ',1,5*' ',sep='')
-i = 4
-j = 1
-while i != 0:
-    print(i*' ',1,j*' ',1,i*' ',sep='')
-    j += 2
-    i -= 1
+
+
+
+s = input("Enter the string: ").split()
+add_excitement(s)
+print(s)
+
+
+def add_excitement(list_string):
+    new = []
+    for item in list_string:
+        new.append(item + '!')
+    return new
+
+s = input("Enter the string: ").split()
+print(add_excitement(s))
+print(s)
