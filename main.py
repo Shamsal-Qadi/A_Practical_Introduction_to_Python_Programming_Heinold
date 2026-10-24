@@ -1,22 +1,28 @@
 """
-p16
-Write a function called one_away that takes two strings and returns True if the strings are of
-the same length and differ in exactly one letter, like bike/hike or water/wafer .
+p17
+(a) Write a function called primes that is given a number n and returns a list of the first n
+primes. Let the default value of n be 100.
+(b) Modify the function above so that there is an optional argument called start that allows
+the list to start at a value other than 2. The function should return the first n primes that
+are greater than or equal to start . The default value of start should be 2.
 """
 
-def one_way(string1 , string2):
-    if len(string1) == len(string2):
-        c = 0
-        for i in range(len(string2)):
-            if string1[i] != string2[i]:
-                c += 1
-        if c == 1:
-            return True
-        else:
-            return False
-    else:
-        return False
+def primes(n=10):
+    flag = True
+    l = []
+    while flag:
+        x = 0
+        for i in range(2,10000):
+            for j in range(2,i-1):
+                if i%j == 0:
+                    break
+            else:
+                l.append(i)
+                x += 1
+            if x == n :
+                flag = False
+                break
+    return l
 
-
-s1 ,s2 = input("Enter 2 strings: ").split()
-print(one_way(s1 , s2))
+num = int(input())
+print(primes(num))
