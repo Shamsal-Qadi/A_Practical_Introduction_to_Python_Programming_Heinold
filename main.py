@@ -7,12 +7,12 @@ the list to start at a value other than 2. The function should return the first 
 are greater than or equal to start . The default value of start should be 2.
 """
 
-def primes(n=10):
+def primes(n=10,start = 2):
     flag = True
     l = []
     while flag:
         x = 0
-        for i in range(2,10000):
+        for i in range(start,10000):
             for j in range(2,i-1):
                 if i%j == 0:
                     break
@@ -25,4 +25,5 @@ def primes(n=10):
     return l
 
 num = int(input())
-print(primes(num))
+st = int(input())
+print(primes(num,st))
