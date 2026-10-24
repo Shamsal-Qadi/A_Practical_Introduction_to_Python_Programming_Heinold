@@ -1,23 +1,17 @@
 """
-p6
-Write a function
-called binom that takes two integers n and k and returns the binomial coefficient
-(nk) . The definition is nk = n! / k!(n−k)!
-Numerator and denominator .
+p7
+Write a function that takes an integer n and returns a random integer with exactly n digits. For
+instance, if n is 3, then 125 and 593 would be valid return values, but 093 would not because
+that is really 93, which is a two-digit number.
 """
+from random import randint
+def digits(n):
+    str_num = ''
+    for i in range(n):
+        x = randint(1,9)
+        str_num += str(x)
+    return int(str_num)
 
-def binom(n , k):
-    num, denom, de_new = 1, 1, 1
-    for i in range(n,0,-1):
-        num *= i
-    for i in range(k,0,-1):
-        denom *= i
-    new = n - k
-    for i in range(new,0,-1):
-        de_new *= i
-    denom *= de_new
-    return num / denom
 
-a , b = input("Enter tow numbers: ").split()
-a , b = int(a) , int(b)
-print(binom(a , b))
+num = int(input("Enter the number of digits: "))
+print(digits(num))
