@@ -1,19 +1,19 @@
 """
-p11
-Write a function called matches that takes two strings as arguments and returns how many
-matches there are between the strings. A match is where the two strings have the same character
-at the same index. For instance, 'python' and 'path' match in the first, third, and
-fourth characters, so the function should return 3.
+p12
+Recall that if s is a string, then s.find( 'a' ) will find the location of the first a in s . The
+problem is that it does not find the location of every a. Write a function called findall that
+given a string and a single character, returns a list containing all of the locations of that character
+in the string. It should return an empty list if there are no occurrences of the character
+in the string.
 """
 
-def matches(string1 , string2):
-    c = 0
-    if len(string1) > len(string2):
-        string1 , string2 = string2 , string1
-    for i in range(len(string1)):
-        if string1[i] == string2[i]:
-            c += 1
-    return c
+def findall(string , char):
+    l = []
+    for i in range(len(string)):
+        if string[i] == char:
+            l.append(i)
+    return l
 
-s1, s2 = input().split()
-print(matches(s1 , s2))
+s = input("Enter the string: ")
+charact = input("Enter the character: ")
+print(findall(s , charact))
