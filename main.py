@@ -1,14 +1,24 @@
 """
-p3
-Write a function called sum_digits that is given an integer num and returns the sum of the
-digits of num .
+p4
+The digital root of a number n is obtained as follows: Add up the digits n to get a new number.
+Add up the digits of that to get another new number. Keep doing this until you get a number
+that has only one digit. That number is the digital root.
+For example, if n = 45893 , we add up the digits to get 4 + 5 + 8 + 9 + 3 = 29 . We then add up
+the digits of 29 to get 2 + 9 = 11 . We then add up the digits of 11 to get 1 + 1 = 2 . Since 2 has
+only one digit, 2 is our digital root.
+Write a function that returns the digital root of an integer n . [Note: there is a shortcut, where
+the digital root is equal to n mod 9, but do not use that here.]
 """
-def sum_digits(num):
-    num = str(num)
-    ans = 0
-    for i in num:
-        ans += int(i)
-    return ans
+def digital_root(string):
+    flag = True
+    while flag:
+        ans = 0
+        for c in string :
+            ans += int(c)
+        if len(str(ans)) == 1:
+            flag = False
+        string = str(ans)
+    return string
 
-n = int(input("Enter the number: "))
-print(sum_digits(n))
+s = input("Enter the string: ")
+print(digital_root(s))
