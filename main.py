@@ -1,16 +1,12 @@
 """
-p14
-Write a function called is_sorted that is given a list and returns True if the list is sorted
-and False otherwise.
+p15
+Write a function called root that is given a number x and an integer n and returns x 1/n . In
+the function definition, set the default value of n to 2.
 """
 
-def is_sorted(l):
-    copy = l[:]
-    copy.sort()
-    if l == copy:
-        return True
-    else:
-        return False
+def root(x , n=2):
+    ans = x**(1/n)
+    return ans
 
-L = input().split()
-print(is_sorted(L))
+a , b = [int(i) for i in input().split()]
+print(root(a , b))
