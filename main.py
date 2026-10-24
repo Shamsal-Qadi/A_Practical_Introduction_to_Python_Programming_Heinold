@@ -1,15 +1,14 @@
 """
-p1
-Write a function called rectangle that takes two integers m and n as arguments and prints
-out an m × n box consisting of asterisks. Shown below is the output of rectangle(2,4)
-****
-****
+p3
+Write a function called sum_digits that is given an integer num and returns the sum of the
+digits of num .
 """
-def rectangle(m , n):
-    for i in range(m):
-        for j in range(n):
-            print('*',end='')
-        print()
+def sum_digits(num):
+    num = str(num)
+    ans = 0
+    for i in num:
+        ans += int(i)
+    return ans
 
-a , b = [int(i) for i in input().split()]
-rectangle(a ,b)
+n = int(input("Enter the number: "))
+print(sum_digits(n))
